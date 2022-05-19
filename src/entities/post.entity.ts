@@ -1,25 +1,25 @@
 import {
-  Column,
-  CreateDateColumn,
-  Entity,
-  JoinColumn,
-  ManyToOne,
-  PrimaryGeneratedColumn,
-} from 'typeorm';
-import { Category } from './category.entity';
+	Column,
+	CreateDateColumn,
+	Entity,
+	JoinColumn,
+	ManyToOne,
+	PrimaryGeneratedColumn,
+} from 'typeorm'
+import { Category } from './category.entity'
 
 @Entity()
 export class Post {
-  @PrimaryGeneratedColumn()
-  id: number;
+	@PrimaryGeneratedColumn()
+	id: number
 
-  @Column()
-  content: string;
+	@Column()
+	content: string
 
-  @CreateDateColumn({ type: 'timestamptz', name: 'created_at' })
-  createdAt: Date;
+	@CreateDateColumn({ type: 'timestamptz', name: 'created_at' })
+	createdAt: Date
 
-  @ManyToOne(() => Category, (category) => category.posts)
-  @JoinColumn({ name: 'category_id' })
-  category: Category;
+	@ManyToOne(() => Category, (category) => category.posts)
+	@JoinColumn({ name: 'category_id' })
+	category: Category
 }
